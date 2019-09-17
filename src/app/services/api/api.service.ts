@@ -17,13 +17,13 @@ export class ApiService {
   }
 
   public loadGifs(search: string): Observable<string[]> {
-    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${environment.apikey}&limit=10`).pipe(
+    return this.http.get(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${environment.apikey}&limit=20`).pipe(
       map(response => {
         // @ts-ignore
         const data = response.data as [];
         return data.map(img => {
           // @ts-ignore
-          return img.images.preview_gif.url;
+          return img.images.fixed_height_small.url;
         });
       })
     );

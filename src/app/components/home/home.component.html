@@ -1,8 +1,18 @@
 <div>
 	<div class="search">
-		<input [(ngModel)]="searchBar" (ngModelChange)="search($event)" type="text" class="searchTerm" placeholder="What are you looking for?">
+		<input [formControl]="searchBar" type="text" class="searchTerm" placeholder="What are you looking for?">
 	</div>
 </div>
-<div>
-  <img *ngFor="let gif of gifs | async" [src]="gif">
+<div class="data">
+  <ng-container *ngIf="gifs | async as gifsAsync; else pleaseType">
+    <ng-container *ngIf="gifsAsync.length > 0; else pleaseType">
+      <img *ngFor="let gif of gifsAsync" [src]="gif">
+    </ng-container>
+  </ng-container>
 </div>
+
+<ng-template #pleaseType>
+  <p>Please type something</p>
+</ng-template>
+
+<a routerLink="/toll">Wer wir sind</a>
