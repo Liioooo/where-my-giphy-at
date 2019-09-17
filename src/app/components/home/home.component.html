@@ -3,3 +3,6 @@
 		<input [(ngModel)]="searchBar" (ngModelChange)="search($event)" type="text" class="searchTerm" placeholder="What are you looking for?">
 	</div>
 </div>
+<div>
+  <img *ngFor="let gif of gifs | async" [src]="gif">
+</div>

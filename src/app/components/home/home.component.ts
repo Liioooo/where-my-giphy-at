@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {ApiService} from '../../services/api/api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public searchBar: string;
+  public gifs: Observable<string[]>;
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
   }
 
   public search(event) {
-    console.log(this.searchBar);
+    this.gifs = this.api.loadGifs(this.searchBar);
   }
 }
