@@ -1,3 +1,4 @@
+
 .search {
 	margin: 1rem;
 	width: calc(100% - 2rem);
@@ -21,7 +22,21 @@
 }
 
 .data {
+  width: 100%;
   margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+
+  img {
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid #00B4CC;
+    margin: 1rem;
+    border-radius: 5px;
+    outline: none;
+  }
 }
 
 a {
@@ -34,3 +49,5 @@ a {
   text-align: center;
   background-color: #9DBFAF;
 }
+
+
